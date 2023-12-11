@@ -1,0 +1,15 @@
+# train.yaml
+
+train: train\images   # Path to the directory containing training images
+val: test\images       # Path to the directory containing validation images
+
+nc: 3                            # Number of classes (large, medium, small)
+
+names: ['large', 'medium', 'small']  # List of class names
+
+backup: ../path/to/backup/dir    # Directory to save the model checkpoints during training
+
+batch_size: 64                  # Training batch size
+subdivisions: 16                # Number of subdivisions per batch (reduce if running out of GPU memory)
+width: 608                      # Width of input images (should be a multiple of 32)
+height: 608                     # Height of input images (should be a multiple of 32)
