@@ -4,13 +4,18 @@ TrafficFlowAnalyzer is a project that combines vehicle detection using YOLOX and
 
 ## Table of Contents
 
-- [Introduction](#introduction)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Configuration](#configuration)
-- [Contributing](#contributing)
-- [License](#license)
+1. [Introduction](#introduction)
+2. [Features](#features)
+3. [Installation](#installation)
+4. [Usage](#usage)
+5. [Configuration](#configuration)
+6. [Trained Models](#trained-models)
+7. [Training Configuration](#training-configuration)
+8. [Result Video](#result-video)
+9. [Contributing](#contributing)
+10. [Acknowledgments](#acknowledgments)
+
+
 
 ## Introduction
 
@@ -70,17 +75,46 @@ To use TrafficFlowAnalyzer, follow these steps:
 
 The `config.py` file contains configuration parameters for TrafficFlowAnalyzer. Adjust these parameters based on your specific requirements.
 
-## Contributing
-
-Contributions are welcome! If you find a bug or have an idea for an improvement, please [open an issue](https://github.com/your-username/TrafficFlowAnalyzer/issues) or submit a pull request.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
 ## Acknowledgments
 
 - YOLOX: [GitHub Repository](https://github.com/Megvii-BaseDetection/YOLOX)
 - BYTETracker: [GitHub Repository](https://github.com/ifzhang/ByteTrack)
 - Ultralytics: [GitHub Repository](https://github.com/ultralytics/yolov5)
 
+## Trained Models
+
+The TrafficFlowAnalyzer project requires pre-trained models for vehicle detection and tracking. You can download the necessary models using the following steps:
+
+1. **Vehicle Detection Model (YOLOX):**
+   - Download the YOLOX model weights (`best.pt`).
+   - Save the weights in the  directory
+
+Make sure to download the correct version of the models that aligns with the project version.
+
+## Training Configuration
+
+If you are interested in training your own models, you can customize the training configuration using the `train.yaml` file. Modify the following parameters in the `train.yaml` file to suit your needs:
+
+- `train`: Path to the directory containing training images.
+- `val`: Path to the directory containing validation images.
+- `nc`: Number of classes (large, medium, small).
+- `names`: List of class names.
+- `backup`: Directory to save the model checkpoints during training.
+- `batch_size`: Training batch size.
+- `subdivisions`: Number of subdivisions per batch (reduce if running out of GPU memory).
+- `width`: Width of input images (should be a multiple of 32).
+- `height`: Height of input images (should be a multiple of 32).
+
+## Result Video
+
+After running TrafficFlowAnalyzer, you can find the result video in the project's root directory with the name `results.mp4`. This video contains the analyzed output with annotated bounding boxes, congestion information, and other relevant details.
+
+### Interpreting the Result Video
+
+- **Annotated Bounding Boxes:** Each detected and tracked vehicle is annotated with a bounding box.
+
+Feel free to watch the result video to gain insights into the traffic flow and congestion analysis performed by the TrafficFlowAnalyzer.
+
+## Contributing
+
+Contributions are welcome! If you find a bug or have an idea for an improvement, please [open an issue](https://github.com/your-username/TrafficFlowAnalyzer/issues) or submit a pull request.
